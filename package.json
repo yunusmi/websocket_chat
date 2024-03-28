@@ -1,0 +1,31 @@
+{
+  "name": "websocket",
+  "version": "1.0.0",
+  "description": "",
+  "main": "./src/app.ts",
+  "scripts": {
+    "dev": "cross-env NODE_ENV=development nodemon --esm --files ./src/app.ts",
+    "prod": "npx cross-env NODE_ENV=production pm2 start ./dist/app.js",
+    "stop:prod": "npx pm2 stop ./dist/app.js",
+    "compile-project": "npx tsc"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "dotenv": "^16.4.5",
+    "express": "^4.19.2",
+    "pm2": "^5.3.1",
+    "ws": "^8.16.0"
+  },
+  "devDependencies": {
+    "@types/dotenv": "^8.2.0",
+    "@types/express": "^4.17.21",
+    "@types/node": "^20.11.30",
+    "@types/ws": "^8.5.10",
+    "cross-env": "^7.0.3",
+    "nodemon": "^3.1.0",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.4.3"
+  }
+}
