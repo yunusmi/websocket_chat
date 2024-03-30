@@ -49,11 +49,13 @@ function scrollToBottom() {
 
 function displayMessage(message) {
   const messageElement = document.createElement('div');
-  messageElement.className = 'alert alert-primary mb-2';
+  messageElement.className = 'alert alert-success mb-2';
   messageElement.innerHTML = `
         <div id="message-${message.msg_id}">
-          <strong>${message.name}:</strong> ${message.message}
-          <button onclick="deleteMessage(${message.msg_id})" class="btn btn-danger btn-sm ms-2"><i class="fa-solid fa-trash"></i></button>
+          <h5 class="alert-heading">${message.name}</h5>
+          <p>${message.message}</p>
+          <hr>
+          <p class="mb-0"><em>${message.msg_time}</em> <button onclick="deleteMessage(${message.msg_id})" class="btn btn-danger btn-sm ms-2" style="float: right;"><i class="fa-solid fa-trash"></i></button></p>
         </div>
       `;
   chatContainer.appendChild(messageElement);

@@ -3,8 +3,7 @@ import * as dotenv from 'dotenv';
 import { server } from './config/ws.config';
 import { messages } from './data/chat';
 import { MessageBody } from './utils/interfaces';
-import { getMessages } from './utils/getMessagesFn';
-import { generateRandomId } from './utils/generateRandomId';
+import { getMessages, setMsgTime, generateRandomId } from './utils/functions';
 
 dotenv.config();
 
@@ -22,6 +21,7 @@ server.on('connection', (ws) => {
           msg_id: generateRandomId(),
           name: parsedMessage.data.name,
           message: parsedMessage.data.message,
+          msg_time: setMsgTime(),
         };
         messages.push(newMessage);
         server.clients.forEach((client) => {
